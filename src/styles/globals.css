@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.sketch-border {
+  border:solid 1px #171717;
+  /* width:200px; */
+  margin:25px auto;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:10px;
+}

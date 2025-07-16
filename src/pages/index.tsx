@@ -13,6 +13,8 @@ import {
   // UserGroupIcon,
 } from '@heroicons/react/20/solid'
 
+import Image from 'next/image'
+
 
 const navigation = [
   { name: '企業情報', href: '#' },
@@ -39,22 +41,6 @@ const team = [
     movie: 'Tutorial2.mp4',
   },
   {
-    name: '検診予約',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    location: 'Toronto, Canada',
-    movie: 'Tutorial3.mp4',
-  },
-  {
-    name: '商品カタログ',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    location: 'Toronto, Canada',
-    movie: 'Tutorial4.mp4',
-  },
-  {
     name: '顧客管理',
     role: 'Co-Founder / CEO',
     imageUrl:
@@ -62,23 +48,13 @@ const team = [
     location: 'Toronto, Canada',
     movie: 'Tutorial5.mp4',
   },
-  {
-    name: 'マニュアル管理',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    location: 'Toronto, Canada',
-    movie: 'Tutorial6.mp4',
-  },
   // More people...
 ]
 const benefits = [
-  'Competitive salaries',
-  'Flexible work hours',
-  '30 days of paid vacation',
-  'Annual team retreats',
-  'Benefits for you and your family',
-  'A great work environment',
+  '最適な価格',
+  '品質の高いシステム',
+  '柔軟性',
+  '柔軟性',
 ]
 const footerNavigation = {
   solutions: [
@@ -233,18 +209,19 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-slate-200">
+    <div className="bg-white">
       {/* Header */}
       <header className="absolute bg-indigo-200 inset-x-0 top-0 z-50">
         <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              {/* <img
                 alt=""
                 src="/assets/images/logo_only_mono.png"
                 className="h-8 w-auto"
-              />
+              /> */}
+              <Image alt="" src={`/assets/images/logo_only_mono.png`} width="100" height="100" className="size-8" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -276,11 +253,12 @@ export default function Example() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
+                {/* <img
                   alt=""
                   src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                   className="h-8 w-auto"
-                />
+                /> */}
+              <Image alt="" src={`/assets/images/logo_only_mono.png`} width="100" height="100" className="size-8" />
               </a>
               <button
                 type="button"
@@ -357,10 +335,10 @@ export default function Example() {
             </div>
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
               {/* <h2 className="text-base/8 font-semibold text-indigo-400">たのしみdev</h2> */}
-              <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-indigo-800 sm:text-3xl">
+              <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-400 sm:text-3xl">
                 あなたのビジネスをITで支援します！
               </p>
-              <p className="mt-6 text-lg/8 text-indigo-800">
+              <p className="mt-6 text-lg/8 text-gray-400">
                 事業者様向け業務システム、店舗様向け店舗アプリなど、様々な業務システムを構築・導入します。
               </p>
             </div>
@@ -387,85 +365,81 @@ export default function Example() {
         </div>
 
 
-    <div className="bg-white py-4">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-semibold text-4xl text-gray-600">お客様の声</h2>
-          {/* <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            こんな声をいただいています
-          </p> */}
-        </div>
-        <div className="mx-auto mt-8 flow-root max-w-2xl sm:mt-8 lg:mx-0 lg:max-w-none">
-          <div className="-mt-8 sm:-mx-3 sm:columns-3 sm:text-[0] lg:columns-3">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.author.handle} className="sketch-border pt-8 sm:inline-block sm:w-full sm:px-2">
-                <figure className="rounded-2xl p-2 text-sm/6">
-                  <blockquote className="text-gray-900">
-                    <p>{`“${testimonial.body}”`}</p>
-                  </blockquote>
-                  <figcaption className="mt-6 flex items-center gap-x-3">
-                    <img alt="" src={testimonial.author.imageUrl} className="size-10 rounded-full bg-gray-50" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
-                      <div className="text-gray-600">{`@${testimonial.author.handle}`}</div>
-                    </div>
-                  </figcaption>
-                </figure>
+        <div className="bg-white py-4">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-semibold text-3xl text-gray-500">お客様の声</h2>
+              {/* <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                こんな声をいただいています
+              </p> */}
+            </div>
+            <div className="flex justify-center">
+              <Image alt="" src={`/assets/images/coconala_logo_yoko.jpg`} width="120" height="80" />
+            </div>
+            <div className="mx-auto mt-4 flow-root max-w-2xl sm:mt-4 lg:mx-0 lg:max-w-none">
+              <div className="-mt-8 sm:-mx-3 sm:columns-3 sm:text-[0] lg:columns-3">
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.author.handle} className="sketch-border pt-8 sm:inline-block sm:w-full sm:px-2">
+                    <figure className="rounded-2xl p-2 text-sm/6">
+                      <blockquote className="text-gray-900">
+                        <p>{`“${testimonial.body}”`}</p>
+                      </blockquote>
+                      <figcaption className="mt-6 flex items-center gap-x-3">
+                        <Image alt="" src={testimonial.author.imageUrl} width="100" height="100" className="size-10 rounded-full bg-gray-50" />
+                        <div>
+                          <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
+                          <div className="text-gray-600">{`@${testimonial.author.handle}`}</div>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-        {/* Team section */}
-        <div className="mx-auto mt-2 max-w-7xl px-6 sm:mt-8 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">システム</h2>
-            <p className="mt-2 text-lg/8 text-gray-300">
-              We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
-              best results for our clients.
-            </p>
+        {/* Systems */}
+        <div className="bg-lime-100 py-4">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="font-semibold text-3xl text-gray-500">業務システムの例</h2>
+            </div>
+
+            <ul
+              role="list"
+              className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-3"
+            >
+              {team.map((person) => (
+                <li key={person.name}>
+                  <video src={`/assets/video/${person.movie}`} playsInline autoPlay controls muted className="aspect-14/13 w-full rounded-2xl object-cover" />
+                  <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">{person.name}</h3>
+                  <p className="text-base/7 text-gray-300">{person.role}</p>
+                  <p className="text-sm/6 text-gray-500">{person.location}</p>
+                </li>
+              ))}
+            </ul>
+
           </div>
-
-          <ul
-            role="list"
-            className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-3"
-          >
-            {team.map((person) => (
-              <li key={person.name}>
-                <video src={`/assets/video/${person.movie}`} playsInline autoPlay controls muted className="aspect-14/13 w-full rounded-2xl object-cover" />
-                <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">{person.name}</h3>
-                <p className="text-base/7 text-gray-300">{person.role}</p>
-                <p className="text-sm/6 text-gray-500">{person.location}</p>
-              </li>
-            ))}
-          </ul>
         </div>
 
 
-
-
-        {/* CTA section */}
-        <div className="relative isolate -z-10 mt-32 sm:mt-40">
+        {/* 企業情報 */}
+        <div className="bg-orange-100 relative isolate -z-10 ">
           <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        
             <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
-              {/* <img
-                alt=""
-                src="https://images.unsplash.com/photo-1519338381761-c7523edc1f46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                className="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm"
-              /> */}
               <div className="w-full flex-auto">
-                <h2 className="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
-                  Join our team
+                <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-500 sm:text-3xl">
+                  つよみ
                 </h2>
-                <p className="mt-6 text-lg/8 text-pretty text-gray-300">
+                <p className="mt-6 text-lg/8 text-pretty text-gray-500">
                   Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis
                   in accusamus quisquam.
                 </p>
                 <ul
                   role="list"
-                  className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-white sm:grid-cols-2"
+                  className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-gray-500 sm:grid-cols-2"
                 >
                   {benefits.map((benefit) => (
                     <li key={benefit} className="flex gap-x-3">
@@ -482,6 +456,125 @@ export default function Example() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* よくある質問 */}
+        <div className="bg-red-100 relative isolate -z-10 ">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        
+            <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+              <div className="w-full flex-auto">
+                <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-500 sm:text-3xl">
+                  よくある質問
+                </h2>
+                <p className="mt-6 text-lg/8 text-pretty text-gray-500">
+                  Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis
+                  in accusamus quisquam.
+                </p>
+                <ul
+                  role="list"
+                  className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-gray-500 sm:grid-cols-2"
+                >
+                  {benefits.map((benefit) => (
+                    <li key={benefit} className="flex gap-x-3">
+                      <CheckCircleIcon aria-hidden="true" className="h-7 w-5 flex-none" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-10 flex">
+                  <a href="#" className="text-sm/6 font-semibold text-indigo-400">
+                    See our job postings <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        {/* 料金例 */}
+        <div className="bg-indigo-100 relative isolate -z-10 ">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        
+            <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+              <div className="w-full flex-auto">
+                <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-500 sm:text-3xl">
+                  料金例
+                </h2>
+                <p className="mt-6 text-lg/8 text-pretty text-gray-500">
+                  Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis
+                  in accusamus quisquam.
+                </p>
+                <ul
+                  role="list"
+                  className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base/7 text-gray-500 sm:grid-cols-2"
+                >
+                  {benefits.map((benefit) => (
+                    <li key={benefit} className="flex gap-x-3">
+                      <CheckCircleIcon aria-hidden="true" className="h-7 w-5 flex-none" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-10 flex">
+                  <a href="#" className="text-sm/6 font-semibold text-indigo-400">
+                    See our job postings <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA section */}
+        <div className="bg-purple-100 relative isolate -z-10 ">
+          <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        
+            <div className="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
+
+              <div className="w-full flex-auto">
+                <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-500 sm:text-3xl">
+                  料金例、流れ
+                </h2>
+                <div className="flex flex-col items-between mt-6">
+                  <div>
+                    <p className="text-lg/8 text-pretty text-gray-500">
+                      しっかりご要望をお伺いし、ヒアリングを行います。
+                    </p>
+                  </div>
+                  <div className="">
+                    <Image alt="" src={`/assets/images/Design and Development-08.png`} width="120" height="80" />
+                  </div>
+                </div>
+              </div>
+
+                <div className="flex flex-col items-between mt-6">
+                  <div>
+                    <p className="text-lg/8 text-pretty text-gray-500">
+                      しっかりご要望をお伺いし、ヒアリングを行います。
+                    </p>
+                  </div>
+                  <div className="">
+                    <Image alt="" src={`/assets/images/Design and Development-39.png`} width="120" height="80" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-between mt-6">
+                  <div>
+                    <p className="text-lg/8 text-pretty text-gray-500">
+                      開発を行い、納品します。
+                    </p>
+                  </div>
+                  <div className="">
+                    <Image alt="" src={`/assets/images/Design and Development-40.png`} width="120" height="80" />
+                  </div>
+                </div>
+
+
+            </div>
+            
+          </div>
           <div
             aria-hidden="true"
             className="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl"
@@ -495,11 +588,13 @@ export default function Example() {
             />
           </div>
         </div>
+
+
       </main>
 
       {/* Footer */}
       <footer>
-        <div className="mx-auto max-w-7xl px-6 pt-32 pb-8 lg:px-8 lg:pt-40">
+        <div className="bg-white mx-auto max-w-7xl px-6 pt-32 pb-8 lg:px-8 lg:pt-40">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8">
               {/* <img
